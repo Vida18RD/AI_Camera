@@ -33,7 +33,7 @@ lumex=0
 
 flags.DEFINE_string('output', 'default', 'name of video')
 flags.DEFINE_string('direction', 'left', 'Right or Left ')
-flags.DEFINE_string('velocity', '0', 'Number from 0 to 255')
+flags.DEFINE_string('velocity', '255', 'Number from 0 to 255')
 
 #pi.set_mode(GPIO_MOTOR,pigpio.OUTPUT)
 pi.set_mode(GPIO_STOP_LEFT,pigpio.INPUT)
@@ -76,11 +76,11 @@ def ratioexposure(lec):
         value_exposure=k-((lec*3)/8000)
         value_exposure=round(value_exposure)
     elif (lec>=22100) and (lec<24000):
-        k=53
+        k=51
         value_exposure=k-((lec*3)/8000)
         value_exposure=round(value_exposure)
     elif (lec>=24000) and (lec<27000):
-        k=50 
+        k=46 #50 
         value_exposure=k-((lec*3)/8000)
         value_exposure=round(value_exposure)
     elif (lec>=27000) and (lec<50000):
@@ -141,8 +141,8 @@ def read_button(dir):
     #actual=int(input('Ingrese 1 para parar'))
     while not stop_motor:
         actual=pi.read(button)
-        input('Ingrese')
-        actual=1
+        #input('Ingrese')
+        #actual=1
         if(actual != anterior):
             stop_motor=True
             break

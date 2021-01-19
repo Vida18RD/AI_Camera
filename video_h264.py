@@ -153,7 +153,7 @@ def time_to_proccess():
 def h264tomp4(file_path):
     name=str(file_path).split('.')[1]
     cmd=f'sudo ffmpeg -y -i {file_path} -vcodec copy .{name}.mp4'
-    print(cmd)
+    #print(cmd)
     os.system(cmd)
     os.remove(file_path)
 

@@ -35,7 +35,6 @@ if __name__ == "__main__":
                 pi.write(LED_INTERNET, 1)    
 
     except :
-        pi.write(LED_ON, 0)         
         pi.write(LED_INTERNET, 0)
 
 
